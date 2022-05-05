@@ -2,11 +2,11 @@
 
 public class Video {
     private String name;
-    private double evaluation;
+    private double rate;
 
-    public Video(String name, double evaluation) {
+    public Video(String name, double rate) {
         this.name = name;
-        this.evaluation = evaluation;
+        this.rate = rate;
     }
 
     public Video(String name) {
@@ -17,7 +17,7 @@ public class Video {
         return this.name;
     }
 
-    public double getEvaluation() {
-        return this.evaluation;
+    public double getRate() {
+        return this.rate;
     }
 }
