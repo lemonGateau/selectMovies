@@ -35,6 +35,7 @@ public class Main {
                 String rate  = it_r.next().text();
 
                 line.notify("\n" + title + " " + rate);
+                System.out.println(title + " " + rate);
 
                 videos.put(title, Double.parseDouble(rate));
             }

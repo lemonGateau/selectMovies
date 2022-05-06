@@ -1,20 +1,20 @@
-// ubuntu 2022-05-05
+// ジャンルなども追加予定
 
 public class Video {
-    private String name;
-    private double rate;
+    private String title;
+    private Double rate;
 
-    public Video(String name, double rate) {
-        this.name = name;
+    public Video(String title, Double rate) {
+        this.title = title;
         this.rate = rate;
     }
 
-    public Video(String name) {
-        this(name, 3.0);
+    public Video(String title) {
+        this(title, 3.0);
     }
 
-    public String getName() {
-        return this.name;
+    public String getTitle() {
+        return this.title;
     }
 
     public double getRate() {

@@ -9,13 +9,7 @@ import org.jsoup.select.Elements;
 
 
 public class FilmarksScraper {
-    private String endPoint = "https://filmarks.com/";
-
-    public Map fetch_vod_films(String vod) {
-        String url = this.endPoint + "list/vod/" + vod;
-    }
-
-    private List<Elements> fetch_contents_info(String url) {
+    public static List<Video> fetchContentsInfo(String url) {
         try {
             Document doc = Jsoup.connect(url).get();
 
@@ -23,11 +17,26 @@ public class FilmarksScraper {
             Elements titles   = contents.select(".p-content-cassette__title");
             Elements rates    = contents.select(".c-rating__score");
 
-            return Map.of(titles, rates)
-        }
-        catch(IOException e) {
+            return elementsListToVideo(titles, rates);
+            }
+        catch (IOException e) {
             e.printStackTrace();
-            return
+            }
         }
+
+    private List<Video> elementsListToVideo(Object titles, Object rates) {
+    	 var t_it = titles.iterator();
+        var r_it = rates.iterator();
+        HashList<Video> videos = new HashList<Video>();
+
+        while(t_it.hasNext() && r_it.hasNext()) {
+            String title = t_it.next().text();
+            String rate  = r_it.next().text();
+
+            System.out.println(title + " " + rate);
+
+            videos.put(new Video(title, Double.parseDouble(rate)));
+            }
+        return videos;
     }
 }

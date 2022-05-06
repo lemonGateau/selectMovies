@@ -9,12 +9,6 @@ import java.util.ResourceBundle;
 public class LineNotifyBot {
     private String token;
 
-    public static void main(String[] args) {
-        var rb   = ResourceBundle.getBundle("config_keys");
-        var line = new LineNotifyBot(rb.getString("LINE_ACCESS_TOKEN"));
-        line.notify("Hello world.");
-    }
-
     public LineNotifyBot(String token) {
         this.token = token;
     }
