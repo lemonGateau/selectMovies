@@ -3,7 +3,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.stream.Collectors;
-import java.util.ResourceBundle;
 
 
 public class LineNotifyBot {
